@@ -47,150 +47,151 @@ if(playGame === 'n') {
 // if user wants to play, then begin the game
 } else if (playGame === 'y') {
   
-  // start question 1
-  var currentQuestion = 0;
+  // start questions
+  
+  for(var currentQuestion = 0; currentQuestion < myQuestions.length; currentQuestion++) {
 
-  // prompt the user for an answer, then push the first letter of the answer
-  // in lowercase into the userAnswers array
-  userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
-  
-  // log the current state of the variables
-  console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
-  console.log('correctAnswer = ', correctAnswers[currentQuestion]);
-  console.log('userAnswers =', userAnswers);
-  
-  // if the answer started with a y or an n, grade it
-  if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
-    if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
-      alert('Correct!');
-      userAccuracy.push('Correct!');
+    // prompt the user for an answer, then push the first letter of the answer
+    // in lowercase into the userAnswers array
+    userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
+    
+    // log the current state of the variables
+    console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
+    console.log('correctAnswer = ', correctAnswers[currentQuestion]);
+    console.log('userAnswers =', userAnswers);
+    
+    // if the answer started with a y or an n, grade it
+    if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
+      if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
+        alert('Correct!');
+        userAccuracy.push('Correct!');
+      } else {
+        alert('Incorrect');
+        userAccuracy.push('Incorrect.');
+      }
     } else {
-      alert('Incorrect');
-      userAccuracy.push('Incorrect.');
+      alert('Please answer with only yes or no.');
+      userAccuracy.push('Incorrect Answer Format.');
     }
-  } else {
-    alert('Please answer with only yes or no.');
-    userAccuracy.push('Incorrect Answer Format.');
+
+    // show the user's record of correct or incorrect answers
+    console.log('userAccuracy =', userAccuracy[currentQuestion]);
   }
+  // // start question 2
+  // currentQuestion++;
 
-  // show the user's record of correct or incorrect answers
-  console.log('userAccuracy =', userAccuracy[currentQuestion]);
-
-  // start question 2
-  currentQuestion++;
-
-  // prompt the user for an answer, then push the first letter of the answer
-  // in lowercase into the userAnswers array
-  userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
+  // // prompt the user for an answer, then push the first letter of the answer
+  // // in lowercase into the userAnswers array
+  // userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
   
-  // log the current state of the variables
-  console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
-  console.log('correctAnswer = ', correctAnswers[currentQuestion]);
-  console.log('userAnswers =', userAnswers);
+  // // log the current state of the variables
+  // console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
+  // console.log('correctAnswer = ', correctAnswers[currentQuestion]);
+  // console.log('userAnswers =', userAnswers);
   
-  // if the answer started with a y or an n, grade it
-  if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
-    if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
-      alert('Correct!');
-      userAccuracy.push('Correct!');
-    } else {
-      alert('Incorrect');
-      userAccuracy.push('Incorrect.');
-    }
-  } else {
-    alert('Please answer with only yes or no.');
-    userAccuracy.push('Incorrect Answer Format.');
-  }
+  // // if the answer started with a y or an n, grade it
+  // if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
+  //   if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
+  //     alert('Correct!');
+  //     userAccuracy.push('Correct!');
+  //   } else {
+  //     alert('Incorrect');
+  //     userAccuracy.push('Incorrect.');
+  //   }
+  // } else {
+  //   alert('Please answer with only yes or no.');
+  //   userAccuracy.push('Incorrect Answer Format.');
+  // }
 
-  // show the user's record of correct or incorrect answers
-  console.log('userAccuracy =', userAccuracy[currentQuestion]);
+  // // show the user's record of correct or incorrect answers
+  // console.log('userAccuracy =', userAccuracy[currentQuestion]);
 
-  // start question 3
-  currentQuestion++;
+  // // start question 3
+  // currentQuestion++;
 
-  // prompt the user for an answer, then push the first letter of the answer
-  // in lowercase into the userAnswers array
-  userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
+  // // prompt the user for an answer, then push the first letter of the answer
+  // // in lowercase into the userAnswers array
+  // userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
   
-  // log the current state of the variables
-  console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
-  console.log('correctAnswer = ', correctAnswers[currentQuestion]);
-  console.log('userAnswers =', userAnswers);
+  // // log the current state of the variables
+  // console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
+  // console.log('correctAnswer = ', correctAnswers[currentQuestion]);
+  // console.log('userAnswers =', userAnswers);
   
-  // if the answer started with a y or an n, grade it
-  if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
-    if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
-      alert('Correct!');
-      userAccuracy.push('Correct!');
-    } else {
-      alert('Incorrect');
-      userAccuracy.push('Incorrect.');
-    }
-  } else {
-    alert('Please answer with only yes or no.');
-    userAccuracy.push('Incorrect Answer Format.');
-  }
+  // // if the answer started with a y or an n, grade it
+  // if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
+  //   if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
+  //     alert('Correct!');
+  //     userAccuracy.push('Correct!');
+  //   } else {
+  //     alert('Incorrect');
+  //     userAccuracy.push('Incorrect.');
+  //   }
+  // } else {
+  //   alert('Please answer with only yes or no.');
+  //   userAccuracy.push('Incorrect Answer Format.');
+  // }
 
-  // show the user's record of correct or incorrect answers
-  console.log('userAccuracy =', userAccuracy[currentQuestion]);
+  // // show the user's record of correct or incorrect answers
+  // console.log('userAccuracy =', userAccuracy[currentQuestion]);
   
-  // start question 4
-  currentQuestion++;
+  // // start question 4
+  // currentQuestion++;
 
-  // prompt the user for an answer, then push the first letter of the answer
-  // in lowercase into the userAnswers array
-  userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
+  // // prompt the user for an answer, then push the first letter of the answer
+  // // in lowercase into the userAnswers array
+  // userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
   
-  // log the current state of the variables
-  console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
-  console.log('correctAnswer = ', correctAnswers[currentQuestion]);
-  console.log('userAnswers =', userAnswers);
+  // // log the current state of the variables
+  // console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
+  // console.log('correctAnswer = ', correctAnswers[currentQuestion]);
+  // console.log('userAnswers =', userAnswers);
   
-  // if the answer started with a y or an n, grade it
-  if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
-    if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
-      alert('Correct!');
-      userAccuracy.push('Correct!');
-    } else {
-      alert('Incorrect');
-      userAccuracy.push('Incorrect.');
-    }
-  } else {
-    alert('Please answer with only yes or no.');
-    userAccuracy.push('Incorrect Answer Format.');
-  }
+  // // if the answer started with a y or an n, grade it
+  // if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
+  //   if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
+  //     alert('Correct!');
+  //     userAccuracy.push('Correct!');
+  //   } else {
+  //     alert('Incorrect');
+  //     userAccuracy.push('Incorrect.');
+  //   }
+  // } else {
+  //   alert('Please answer with only yes or no.');
+  //   userAccuracy.push('Incorrect Answer Format.');
+  // }
 
-  // show the user's record of correct or incorrect answers
-  console.log('userAccuracy =', userAccuracy[currentQuestion]);
+  // // show the user's record of correct or incorrect answers
+  // console.log('userAccuracy =', userAccuracy[currentQuestion]);
 
-  // start question 5
-  currentQuestion++;
+  // // start question 5
+  // currentQuestion++;
 
-  // prompt the user for an answer, then push the first letter of the answer
-  // in lowercase into the userAnswers array
-  userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
+  // // prompt the user for an answer, then push the first letter of the answer
+  // // in lowercase into the userAnswers array
+  // userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
   
-  // log the current state of the variables
-  console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
-  console.log('correctAnswer = ', correctAnswers[currentQuestion]);
-  console.log('userAnswers =', userAnswers);
+  // // log the current state of the variables
+  // console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
+  // console.log('correctAnswer = ', correctAnswers[currentQuestion]);
+  // console.log('userAnswers =', userAnswers);
   
-  // if the answer started with a y or an n, grade it
-  if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
-    if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
-      alert('Correct!');
-      userAccuracy.push('Correct!');
-    } else {
-      alert('Incorrect');
-      userAccuracy.push('Incorrect.');
-    }
-  } else {
-    alert('Please answer with only yes or no.');
-    userAccuracy.push('Incorrect Answer Format.');
-  }
+  // // if the answer started with a y or an n, grade it
+  // if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
+  //   if (userAnswers[currentQuestion] === correctAnswers[currentQuestion]) {
+  //     alert('Correct!');
+  //     userAccuracy.push('Correct!');
+  //   } else {
+  //     alert('Incorrect');
+  //     userAccuracy.push('Incorrect.');
+  //   }
+  // } else {
+  //   alert('Please answer with only yes or no.');
+  //   userAccuracy.push('Incorrect Answer Format.');
+  // }
 
-  // show the user's record of correct or incorrect answers
-  console.log('userAccuracy =', userAccuracy[currentQuestion]);
+  // // show the user's record of correct or incorrect answers
+  // console.log('userAccuracy =', userAccuracy[currentQuestion]);
 
 // if the opening prompt was answered with neither yes nor no send an alert
 } else {
