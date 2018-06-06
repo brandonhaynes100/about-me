@@ -38,12 +38,12 @@ var userAnswers = [];
 var userAccuracy = [];
 
 // record whether the user wants to play the game
-var playGame = prompt('Do you want to play my guessing game? Please answer only with yes or no').toLowerCase().charAt(0);
+var playGame = prompt('Hello, ' + userName + '. Do you want to play my guessing game? Please answer only with yes or no').toLowerCase().charAt(0);
 console.log('playGame =', playGame);
 
 // if user replies they do not want to play a game, send a simple message
 if(playGame === 'n') {
-  alert('Have a great day!')
+  alert('Have a great day, ' + userName + '!');
 // if user wants to play, then begin the game
 } else if (playGame === 'y') {
   
@@ -70,7 +70,7 @@ if(playGame === 'n') {
     }
   } else {
     alert('Please answer with only yes or no.');
-    userAcuracy.push('Incorrect Answer Format.');
+    userAccuracy.push('Incorrect Answer Format.');
   }
 
   // show the user's record of correct or incorrect answers
@@ -99,7 +99,7 @@ if(playGame === 'n') {
     }
   } else {
     alert('Please answer with only yes or no.');
-    userAcuracy.push('Incorrect Answer Format.');
+    userAccuracy.push('Incorrect Answer Format.');
   }
 
   // show the user's record of correct or incorrect answers
@@ -128,7 +128,7 @@ if(playGame === 'n') {
     }
   } else {
     alert('Please answer with only yes or no.');
-    userAcuracy.push('Incorrect Answer Format.');
+    userAccuracy.push('Incorrect Answer Format.');
   }
 
   // show the user's record of correct or incorrect answers
@@ -157,7 +157,7 @@ if(playGame === 'n') {
     }
   } else {
     alert('Please answer with only yes or no.');
-    userAcuracy.push('Incorrect Answer Format.');
+    userAccuracy.push('Incorrect Answer Format.');
   }
 
   // show the user's record of correct or incorrect answers
