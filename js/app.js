@@ -1,13 +1,19 @@
 'use strict';
 
-var userName = 'guestDefaultName';
-// var userName = prompt('Hello! What is your name?');
+// default name for speedier testing
+// change variable to true to turn on default name
+var defaultUserName = true;
+if (defaultUserName) {
+  var userName = 'userDefault';
+} else {
+  var userName = prompt('Hello! What is your name?');
+}
 console.log('userName = ' + userName);
 
 // default answers for speedier testing
 // change variable to true to turn on default answers
-var defaultOn = true;
-if (defaultOn) {
+var defaultAnswersOn = true;
+if (defaultAnswersOn) {
   var defaultAnswers = ['YES', 'Y', 'y', 'N', '9'];
 } else {
   var defaultAnswers = [, , , , ]
