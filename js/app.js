@@ -1,9 +1,9 @@
 'use strict';
 
 // change variable to true to activate code for that section
-var questionOneThroughFiveActive = false;
+var questionOneThroughFiveActive = true;
 console.log('Questions 1-5 active:', questionOneThroughFiveActive);
-var questionSixActive = false;
+var questionSixActive = true;
 console.log('Question 6 active:', questionSixActive);
 var questionSevenActive = true;
 console.log('Question 7 active:', questionSevenActive);
@@ -157,7 +157,7 @@ if (questionSevenActive) {
 
   do {
     // create a variable to store the user's response to the prompt containing question 6
-    var userAnsSeven = prompt(myQuestions[6] + ' You have ' + (userAttempts + 1) + ' attempts remaining.').toLowerCase();
+    var userAnsSeven = prompt(myQuestions[6] + ' You have ' + (userAttempts) + ' attempts remaining.').toLowerCase();
     console.log('userAnsSeven =', userAnsSeven);
     
     // flag for whether the user's answer was found
@@ -182,7 +182,7 @@ if (questionSevenActive) {
     // if the user's guess wasn't present
     } else {
       // alert them their guess was incorrect
-      alert('Oops, please try again.');
+      alert('Oops, that was incorrect.');
     }
     userAttempts--;
   } while (userAttempts > 0);
