@@ -3,9 +3,9 @@
 // change variable to true to activate code for that section
 var questionOneThroughFiveActive = false;
 console.log('Questions 1-5 active:', questionOneThroughFiveActive);
-var questionSixActive = true;
+var questionSixActive = false;
 console.log('Question 6 active:', questionSixActive);
-var questionSevenActive = false;
+var questionSevenActive = true;
 console.log('Question 7 active:', questionSevenActive);
 
 // default name for speedier testing
@@ -64,6 +64,7 @@ var myQuestions = [
   console.log('Correct answer 6 =', correctAnswerSix);
   // Q7
   var correctAnswerSeven = ['Snake', 'Crane', 'Tiger', 'Mantis', 'Panther', 'Dragon', 'Monkey'];
+  console.log('Correct answer 7 =', correctAnswerSeven);
 
 // start questions 1-5
 if (questionOneThroughFiveActive) {
@@ -120,7 +121,7 @@ if (questionSixActive) {
 
   do {
     // create a variable to store the user's response to the prompt containing question 6
-    var userAnsSix = parseInt(prompt(myQuestions[5] + ' You have ' + userAttempts + ' attempts remaining. Please enter an integer only.'));
+    var userAnsSix = parseInt(prompt(myQuestions[5] + ' Please enter an integer only. You have ' + userAttempts + ' attempts remaining.'));
     console.log('userAnsSix =', userAnsSix);
     
     // indicate correct, too low, too high
@@ -133,26 +134,58 @@ if (questionSixActive) {
       break;
     // if the user's guess was too low
     } else if (userAnsSix < correctAnswerSix) {
-      // alert the user and inform them of attempts remaining
-      alert('Oops, that\'s too low! You have ' + (userAttempts - 1) + " attempts remaining.")
+      // alert the user their guess was too low
+      alert('Oops, that\'s too low!');
     // if the user's guess was too high
     } else if (userAnsSix > correctAnswerSix) {
-      // alert the user and inform them of attempts remaining
-      alert('Oops, that\'s too high! You have ' + (userAttempts - 1) + " attempts remaining.")
+      // alert the user their guess was too high
+      alert('Oops, that\'s too high!');
     // the user's input was incorrect
     } else {
-      // alert the user to enter a number only and inform them of attempts remining
-      alert('Oops, please only enter an integer! You have ' + (userAttempts - 1) + " attempts remaining.")
+      // alert the user to enter a number only
+      alert('Oops, please only enter an integer!');
     }
     userAttempts--;
-  } while (userAttempts > 0)
-  
+  } while (userAttempts > 0);
 }
 // end question 6
 
 // start question 7
 if (questionSevenActive) {
+  // give the user 6 attempts for this question
+  userAttempts = 6
 
+  do {
+    // create a variable to store the user's response to the prompt containing question 6
+    var userAnsSeven = prompt(myQuestions[6] + ' You have ' + (userAttempts + 1) + ' attempts remaining.').toLowerCase();
+    console.log('userAnsSeven =', userAnsSeven);
+    
+    // flag for whether the user's answer was found
+    var found = false;
+    // check whether the user's answer is in the answer array
+    for (var i = 0; i < correctAnswerSeven.length; i++) {
+      // if found, change flag and break out of the loop
+      if(correctAnswerSeven[i].toLowerCase() === userAnsSeven) {
+        found = true;
+        break;
+      }
+    }
+
+    // indicate correct or prompt to try again
+    if (found) {
+      // alert user
+      alert('That\'s correct!');
+      // load the correct answer into the userAnswers array
+      userAnswers.push(userAnsSeven);
+      // leave the loop
+      break;
+    // if the user's guess wasn't present
+    } else {
+      // alert them their guess was incorrect
+      alert('Oops, please try again.');
+    }
+    userAttempts--;
+  } while (userAttempts > 0);
 }
 // end question 7
 
