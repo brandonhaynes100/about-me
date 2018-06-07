@@ -2,9 +2,9 @@
 
 // change variable to true to activate code for that section
 var overLoop = false;
-var questionOneThroughFiveActive = false;
+var questionOneThroughFiveActive = true;
 console.log('Questions 1-5 active:', questionOneThroughFiveActive);
-var questionSixActive = false;
+var questionSixActive = true;
 console.log('Question 6 active:', questionSixActive);
 var questionSevenActive = true;
 console.log('Question 7 active:', questionSevenActive);
@@ -168,10 +168,25 @@ if(playGame === 'n' || playGame === null) {
   // start questions 1-5
   if(questionOneThroughFiveActive) {
     for(i = 0; i < 5; i++) {
-      var currentUserAnswer = prompt('Hello, ' + userName + '. Do you want to play my guessing game? Please answer only with yes or no.');
+      var currentUserAnswer = prompt(myQuestions[i]);
       console.log('currentUserAnswer:', currentUserAnswer);
-      if(playGame !== null) {
-        playGame = playGame.toLowerCase().charAt(0);
+      if(playGame === null) {
+        break;
+        console.log('User selected cancel.')
+      } else {
+        currentUserAnswer = currentUserAnswer.toLowerCase().charAt(0);
+        console.log('currentUserAnswer:', currentUserAnswer);
+      }
+
+      currentMyAnswer = myAnswers[i];
+      if(currentUserAnswer === currentMyAnswer) {
+        console.log("Correct!")
+        alert('Correct!')
+        userAccuracy.push(correct);
+      } else {
+        console.log("Incorrect.")
+        alert('Incorrect.')
+        userAccuracy.push(incorrect);
       }
     }
   }// end questions 1-5
