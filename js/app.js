@@ -2,8 +2,11 @@
 
 // change variable to true to activate code for that section
 var questionOneThroughFiveActive = false;
-var questionSixActive = false;
+console.log('Questions 1-5 active:', questionOneThroughFiveActive);
+var questionSixActive = true;
+console.log('Question 6 active:', questionSixActive);
 var questionSevenActive = false;
+console.log('Question 7 active:', questionSevenActive);
 
 // default name for speedier testing
 // change variable to true to turn on default name
@@ -13,7 +16,7 @@ if (defaultUserName) {
 } else {
   var userName = prompt('Hello! What is your name?');
 }
-console.log('userName = ' + userName);
+console.log('userName: ' + userName);
 
 // default answers for speedier testing
 // change variable to true to turn on default answers
@@ -21,15 +24,16 @@ var defaultAnswersOn = true;
 if (defaultAnswersOn) {
   var defaultAnswers = ['YES', 'Y', 'y', 'N', '9', '7', 'Tiger'];
 }
-console.log('defaultAnswersOn =', defaultAnswersOn);
-console.log(defaultAnswers)
+console.log('defaultAnswersOn:', defaultAnswersOn);
+console.log(defaultAnswers);
 
 // variable to track user's remaining attempts 
 var userAttempts = 0;
+console.log('userAttempts:', userAttempts);
 
 // record whether the user wants to play the game
 var playGame = prompt('Hello, ' + userName + '. Do you want to play my guessing game? Please answer only with yes or no').toLowerCase().charAt(0);
-console.log('playGame =', playGame);
+console.log('playGame:', playGame);
 
 
 // multi-dimensional array for tracking the user's answers, and  whether those answers were correct
@@ -39,8 +43,7 @@ var userAnswersAndAccuracy = [userAnswers, userAccuracy];
 
 // user's number of correct answers
 var userScore = 0;
-
-var userAttempts
+console.log('userScore:', userScore);
 
 var myQuestions = [
   'Do I live in Seattle?',
@@ -48,18 +51,19 @@ var myQuestions = [
   'Have I ridden a horse?',
   'Do I like cilantro?',
   'Do I bring lunch to Code Fellows?',
-  'I\'m thinking of a number between 1 and 10. Can you guess what it is in 4 or fewer attempts?'
+  'I\'m thinking of a number between 0 and 10. Can you guess what it is?',
+  'Can you guess any of the 7 kung fu animal styles I\'ve studied in 6 or fewer attempts?'
 ]
 
   // the truth
   // Q1-Q5
-  var correctAnswersOneThruFive = ['y', 'n', 'y', 'n', 'y'];
-  console.log('Correct answers 1-5 =', correctAnswersOneThruFive);
+  var correctAnswersYesNo = ['y', 'n', 'y', 'n', 'y'];
+  console.log('Correct answers Y/N =', correctAnswersYesNo);
   // Q6
-  var correctAnswerSix = (Math.random() * 10).toFixed(0).toString();
+  var correctAnswerSix = (Math.floor(Math.random() * 10));
   console.log('Correct answer 6 =', correctAnswerSix);
   // Q7
-  var correctAnswerSeven = ['Snake', 'Crane', 'Tiger', 'Panther', 'Dragon'];
+  var correctAnswerSeven = ['Snake', 'Crane', 'Tiger', 'Mantis', 'Panther', 'Dragon', 'Monkey'];
 
 // start questions 1-5
 if (questionOneThroughFiveActive) {
@@ -72,21 +76,21 @@ if (questionOneThroughFiveActive) {
   } else if (playGame === 'y') {
     
     // start questions
-      for(var currentQuestion = 0; currentQuestion < myQuestionsYN.length; currentQuestion++) {
+      for(var currentQuestion = 0; currentQuestion < 5; currentQuestion++) {
 
       // prompt the user for an answer, then push the first letter of the answer
-      // in lowercase into the userAnswersYN array
-      userAnswersYN.push(prompt(myQuestionsYN[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
+      // in lowercase into the userAnswers array
+      userAnswers.push(prompt(myQuestions[currentQuestion] + ' Please only answer with yes or no.', defaultAnswers[currentQuestion]).toLowerCase().charAt(0));
       
       // log the current state of the variables
-      console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswersYN[currentQuestion]);
-      console.log('correctAnswer = ', correctAnswersYN[currentQuestion]);
-      console.log('userAnswersYN =', userAnswersYN);
+      console.log('userAnswer ' + (currentQuestion + 1) + ' =', userAnswers[currentQuestion]);
+      console.log('correctAnswer = ', correctAnswersYesNo[currentQuestion]);
+      console.log('userAnswers =', userAnswers);
       
       // if the answer started with a y or an n, grade it
-      if (userAnswersYN[currentQuestion] === 'n' || userAnswersYN[currentQuestion] === 'y') {
+      if (userAnswers[currentQuestion] === 'n' || userAnswers[currentQuestion] === 'y') {
         // if the user's answer matches the correct answer, alert them accordingly
-        if (userAnswersYN[currentQuestion] === correctAnswersYN[currentQuestion]) {
+        if (userAnswers[currentQuestion] === correctAnswersYesNo[currentQuestion]) {
           alert('Correct!');
           userAccuracy.push('Correct!');
         } else {
@@ -111,19 +115,38 @@ if (questionOneThroughFiveActive) {
 
 // start question 6
 if (questionSixActive) {
-  // create a random number for the user to guess
-  var correctNumber = (Math.random() * 100) % 10;
-  console.log('Correct random number =', correctNumber)
+  // Give the user 4 attempts for this question
+  userAttempts = 4;
 
-  // propmt the user to guess a number in the range
-  prompt()
-  // indicate correct, too low, too high
-
-  // if chances remain (4 to start)
-  //   allow another guess
-  // else track correctness
-  // leave
-
+  do {
+    // create a variable to store the user's response to the prompt containing question 6
+    var userAnsSix = parseInt(prompt(myQuestions[5] + ' You have ' + userAttempts + ' attempts remaining. Please enter an integer only.'));
+    console.log('userAnsSix =', userAnsSix);
+    
+    // indicate correct, too low, too high
+    if (userAnsSix === correctAnswerSix) {
+      // alert user
+      alert('That\'s correct!');
+      // load the correct answer into the userAnswers array
+      userAnswers.push(userAnsSix);
+      // leave the loop
+      break;
+    // if the user's guess was too low
+    } else if (userAnsSix < correctAnswerSix) {
+      // alert the user and inform them of attempts remaining
+      alert('Oops, that\'s too low! You have ' + (userAttempts - 1) + " attempts remaining.")
+    // if the user's guess was too high
+    } else if (userAnsSix > correctAnswerSix) {
+      // alert the user and inform them of attempts remaining
+      alert('Oops, that\'s too high! You have ' + (userAttempts - 1) + " attempts remaining.")
+    // the user's input was incorrect
+    } else {
+      // alert the user to enter a number only and inform them of attempts remining
+      alert('Oops, please only enter an integer! You have ' + (userAttempts - 1) + " attempts remaining.")
+    }
+    userAttempts--;
+  } while (userAttempts > 0)
+  
 }
 // end question 6
 
