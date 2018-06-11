@@ -138,8 +138,13 @@ function question6() {
 
   do {
     // create a variable to store the user's response to the prompt containing question 6
-    var userAnsSix = parseInt(prompt(myQuestions[5] + ' Please enter an integer only. You have ' + userAttempts + ' attempts remaining.'));
+    var userAnsSix = prompt(myQuestions[5] + ' Please enter an integer only. You have ' + userAttempts + ' attempts remaining.');
     console.log('userAnsSix =', userAnsSix);
+    if(userAnsSix === null) {
+      return;
+    } else {
+      userAnsSix = parseInt(userAnsSix);
+    }
     // assign the correct answer to a local variable
     var correctAnswerSix = myAnswers[5];
 
@@ -182,8 +187,12 @@ function question7() {
   userAttempts = 6;
   do {
     // create a variable to store the user's response to the prompt containing question 6
-    var userAnsSeven = prompt(myQuestions[6] + ' You have ' + (userAttempts) + ' attempts remaining.').toLowerCase();
+    var userAnsSeven = prompt(myQuestions[6] + ' You have ' + (userAttempts) + ' attempts remaining.');
     console.log('userAnsSeven =', userAnsSeven);
+    if(userAnsSeven === null) {
+      return;
+    }
+    userAnsSeven = userAnsSeven.toLowerCase();
     // create a variable to store the correct answer for question 7
     var correctAnswerSeven = myAnswers[6];
     console.log('correctAnswerSeven =', correctAnswerSeven);
@@ -242,6 +251,8 @@ function endGameSummary() {
 
 }
 
+// gameWithLoops();
+
 userNamePrompt();
 playGamePrompt();
 function gameStart() {
@@ -250,65 +261,3 @@ function gameStart() {
   question7();
   endGameSummary();
 }
-
-
-
-
-// loop to go through all the questions
-//   if(overLoop) {
-//     for(var i = 0; i < myQuestions.length; i++) {
-//       var currentMyQuestion = myQuestions[i];
-//       console.log(', currentMyQuestion');
-//       var currentMyAnswer = myAnswers[i];
-//       console.log('currentMyAnswer =', currentMyAnswer);
-//       var defaultAnswer = '';
-//       if(defaultAnswersOn) {
-//         defaultAnswer = defaultAnswerArray[i];
-//       }
-
-//       // if the current question index is less than 6, we're answering yes/no questions, proceed with y and n evaluation
-//       if(i < 6) {
-//         console.log('q1-q5 detected');
-
-//         // retrieve and store the user's response to the current question
-//         var answerAttempt = prompt(currentMyQuestion + ' Please only answer with yes or no.', defaultAnswer);
-//         console.log('answerAttempt =', answerAttempt);
-
-//         // if the user selects cancel, break the loop and end the game
-//         if(answerAttempt === null) {
-//           console.log('User selected cancel');
-//           break;
-//         }
-
-//         answerAttempt = answerAttempt.toLowerCase().charAt(0);
-
-//         while(answerAttempt !== 'y' && answerAttempt !== 'n') {
-//           // re-prompt, retrieve and store the user's response to the current question
-//           answerAttempt = prompt(currentMyQuestion + ' Please only answer with yes or no.', defaultAnswer);
-//           console.log('answerAttempt =', answerAttempt);
-//           // if the user selects cancel, break the loop and end the game
-//           if(answerAttempt === null) {
-//             console.log('User selected cancel');
-//             break;
-//           }
-//           answerAttempt = answerAttempt.toLowerCase().charAt(0);
-//         }
-
-//         if(answerAttempt === currentMyAnswer) {
-//           alert('Correct!');
-//           userAccuracy.push(correct);
-//         } else {
-//           alert('Incorrect');
-//           userAccuracy.push(incorrect);
-//         }
-
-//       // if my answer is a number, proceed with q6 evaluation
-//       } else if(i === 6) {
-//         console.log('Number detected');
-
-//       // if my answer is an array, proceed with q7 evaluation
-//       } else if(i === 7) {
-//         console.log('Array detected');
-//       }
-//     }// end for(var currentQuestion = 0; currentQuestion < myQuestions.length; currentQuestion++)
-//   }// end overLoop
